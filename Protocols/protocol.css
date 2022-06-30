@@ -19,7 +19,7 @@ tr,
 th,
 td {
   border: 1px solid black;
-  padding: 0.5rem;
+  padding: 0.3rem;
 }
 
 td:not(:first-child) {
@@ -38,14 +38,32 @@ th:not(:first-child):nth-child(odd) {
 }
 
 .level {
-  width: 5%;
+  width: 10px;
   vertical-align: bottom;
+}
+
+.green {
+  background-color: #4caf50 !important;
 }
 
 .header {
   text-align: left;
   font-size: 1.75rem;
   padding-left: 1rem;
+}
+
+.backBtn,
+.backBtn a {
+  padding: 0;
+}
+
+.backBtn a {
+  text-decoration: none;
+  background-color: #0d47a1;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem;
+  display: block;
 }
 
 th p {
