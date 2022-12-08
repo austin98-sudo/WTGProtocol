@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Metronome</title>
+    <script defer src="metronome.js"></script>
+    <link rel="stylesheet" href="../main.css" />
+  </head>
+  <style>
+    .grid-2 {
+      grid-template-columns: auto auto;
+    }
+
+    button {
+      padding: 2rem 0.2rem;
+      font-size: 1.5rem;
+    }
+  </style>
+  <body>
+    <div class="container align-center flex flex-column full-body">
+      <h1 class="main-header"><span class="backBtn" onclick="window.location ='../index.html'">Back</span>Metronome</h1>
+      <h1 class="font-size-large" id="seconds">30</h1>
+      <div
+        class="grid grid-2 flex flex-column margin-bottom margin-left margin-right"
+        style="margin-top: auto; margin-bottom: 25px"
+      >
+        <button id="down">Decrease</button>
+        <button id="up">Increase</button>
+        <button class="grid-span-all green" id="control">Start</button>
+      </div>
+    </div>
+  </body>
+</html>

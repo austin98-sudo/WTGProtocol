@@ -1,0 +1,465 @@
+:root {
+  --red: #9d1b28;
+  --gunmetal: #333745;
+  --green: #2a6a11;
+  --gray: #b4b7cf;
+  --blue: #1a2760;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1.main-header {
+  text-align: center;
+  background-color: var(--gunmetal);
+  color: white;
+  padding: 1rem;
+  margin: 0;
+  font-size: 2rem;
+}
+
+h1.main-header .backBtn {
+  float: left;
+  color: white;
+}
+
+h1.code-header {
+  padding: 10px;
+  background-color: var(--gunmetal);
+  text-align: center;
+  color: white;
+  margin-bottom: 10px;
+}
+
+h1.codeTimer {
+  font-size: 4rem;
+  margin: 0;
+}
+
+h2.codeTimer {
+  font-size: 2rem;
+  margin: 0;
+}
+
+div#codeMenu button {
+  font-size: 2rem;
+  padding: 1.5rem;
+}
+
+h1#backMenu {
+  text-align: center;
+  border-radius: 5px;
+  padding: 15px;
+  background-color: var(--gray);
+}
+
+button {
+  padding: 1rem;
+  border: 0;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  color: black;
+  -webkit-appearance: none;
+}
+
+button.red:disabled {
+  background-color: #c05a64;
+}
+
+button.green:disabled {
+  background-color: #6cae52;
+}
+
+button.action {
+  background-color: var(--gray);
+}
+
+button.green {
+  background-color: var(--green);
+  color: white;
+}
+
+button.blue {
+  background-color: var(--blue);
+  color: white;
+}
+
+button.red {
+  background-color: var(--red);
+  color: white;
+}
+
+button.gray {
+  background-color: var(--gray);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+div.grid {
+  display: grid;
+  text-align: center;
+  column-gap: 15px;
+  row-gap: 15px;
+}
+
+div.grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+div.grid-3 {
+  column-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.margin-top {
+  margin-top: 15px;
+}
+
+.margin-left {
+  margin-left: 15px;
+}
+
+.margin-right {
+  margin-right: 15px;
+}
+
+.margin-bottom {
+  margin-bottom: 15px;
+}
+
+textarea {
+  border-radius: 5px;
+  width: 90%;
+  font-size: 1rem;
+  padding: 5px;
+  margin-bottom: 1.5rem;
+}
+
+/*Modal Styling*/
+div.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+
+div.modal-content {
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: white;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.modal-content h1 {
+  margin-bottom: 0;
+}
+
+div.modal-content h3 {
+  margin-bottom: 0;
+}
+
+div.modal-content select,
+div.modal-content input {
+  -webkit-appearance: none;
+  width: 80%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  border-radius: 5px;
+}
+
+div.modal-content select option {
+  font-size: 1.25rem;
+}
+
+div.modal-content button {
+  width: 100%;
+}
+
+/*Code List styling*/
+h1.backMenu {
+  text-align: center;
+  border-radius: 5px;
+  padding: 15px;
+  background-color: var(--gray);
+}
+
+h1.backMenu:hover {
+  cursor: pointer;
+}
+
+div#codeList h3 {
+  margin: 1rem;
+}
+
+div#codeList ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+div#codeList li {
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+div#codeList li:nth-child(odd) {
+  background-color: rgb(172, 172, 172);
+}
+
+div#codeList li:hover {
+  cursor: pointer;
+}
+
+/* :root {
+  --red: #9d1b28;
+  --gunmetal: #333745;
+  --green: #2a6a11;
+  --gray: #b4b7cf;
+  --blue: #1a2760;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1.main-header {
+  text-align: center;
+  background-color: var(--gunmetal);
+  color: white;
+  padding: 1rem;
+  margin: 0;
+  font-size: 2rem;
+}
+
+h1.main-header .backBtn {
+  float: left;
+}
+
+h1.code-header {
+  padding: 10px;
+  background-color: var(--gunmetal);
+  text-align: center;
+  color: white;
+  margin-bottom: 10px;
+}
+
+h1.codeTimer {
+  font-size: 4rem;
+  margin: 0;
+}
+
+h2.codeTimer {
+  font-size: 2rem;
+  margin: 0;
+}
+
+div#codeMenu button {
+  font-size: 2rem;
+  padding: 1.5rem;
+}
+
+button {
+  padding: 1rem;
+  border: 0;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  color: black;
+  -webkit-appearance: none;
+}
+
+button.red:disabled {
+  background-color: #c05a64;
+}
+
+button.green:disabled {
+  background-color: #6cae52;
+}
+
+button.action {
+  background-color: var(--gray);
+}
+
+button.green {
+  background-color: var(--green);
+  color: white;
+}
+
+button.blue {
+  background-color: var(--blue);
+  color: white;
+}
+
+button.red {
+  background-color: var(--red);
+  color: white;
+}
+
+button.gray {
+  background-color: var(--gray);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+div.grid {
+  display: grid;
+  text-align: center;
+  column-gap: 15px;
+  row-gap: 15px;
+}
+
+div.grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+div.grid-3 {
+  column-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.margin-top {
+  margin-top: 15px;
+}
+
+.margin-left {
+  margin-left: 15px;
+}
+
+.margin-right {
+  margin-right: 15px;
+}
+
+.margin-bottom {
+  margin-bottom: 15px;
+}
+
+/*Modal Styling*/
+/*
+div.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+
+div.modal-content {
+  margin: 5% auto;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: white;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.modal-content h1 {
+  margin-bottom: 0;
+}
+
+div.modal-content select,
+div.modal-content input {
+  -webkit-appearance: none;
+  width: 80%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  border-radius: 5px;
+}
+
+div.modal-content select option {
+  font-size: 1.25rem;
+}
+
+div.modal-content button {
+  width: 100%;
+}
+
+/*Code List styling*/
+div#codeList h1 {
+  text-align: center;
+  border-radius: 5px;
+  padding: 15px;
+  background-color: var(--gray);
+}
+
+div#codeList h1:hover {
+  cursor: pointer;
+}
+
+div#codeList ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+div#codeList li {
+  padding: 10px;
+  font-size: 1.35rem;
+}
+
+div#codeList div#codeListDisplay div {
+  padding: 5px;
+  font-size: 1.5rem;
+}
+
+div#codeList li:nth-child(odd),
+div#codeListDisplay div:nth-child(odd) {
+  background-color: rgb(172, 172, 172);
+}
+
+div#codeList li:hover {
+  cursor: pointer;
+}
+
+div#codeListDisplay div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div#codeListDisplay div:hover {
+  cursor: pointer;
+}
+
+div#codeListDisplay span:first-child {
+  width: 75%;
+  padding: 20px;
+}
+
+div#codeListDisplay div span:last-child {
+  background-color: var(--red);
+  color: white;
+  padding: 8px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+div#codeListDisplay div span:last-child:hover {
+  cursor: pointer;
+}

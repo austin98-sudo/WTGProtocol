@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pediatric Tape</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <script src="tapeColors.js"></script>
+    <script defer src="process.js"></script>
+</head>
+
+<body>
+    <div id="main">
+        <button id="viewGrid">View Grid</button>
+        <button onclick="window.location='../index.html'">Go back</button>
+        <input id="takePicture" type="file" accept="image/*">
+        <p>Remember patient's head must be at very top of frame and feet must be at very bottom of frame</p>
+        <p>Also remember to have a credit card next to patient for reference</p>
+    </div>
+    <div id="picture">
+        <img id="imageMeasure">
+    </div>
+    <div id="colorGrid">
+        <h1 class="span-all"><i class="back fas fa-arrow-left"></i>Pediatric Tape</h1>
+        <button class="mainBtn gray span-all" value="weight">3 - 5 kg</button>
+        <button class="mainBtn pink" value="pink">Pink</button>
+        <button class="mainBtn red" value="red">Red</button>
+        <button class="mainBtn purple" value="purple">Purple</button>
+        <button class="mainBtn yellow" value="yellow">Yellow</button>
+        <button class="mainBtn white" value="white">White</button>
+        <button class="mainBtn blue" vavlue="blue">Blue</button>
+        <button class="mainBtn orange" value="orange">Orange</button>
+        <button class="mainBtn green" value="green">Green</button>
+    </div>
+    <div id="colorDisplay">
+
+    </div>
+</body>
+
+</html>
+
+<!--Templating area for colors-->

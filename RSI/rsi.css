@@ -1,0 +1,98 @@
+:root {
+  --charcoal: #2f394d;
+  --ruby: #8e152d;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.05rem;
+}
+
+body {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+input {
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 1.25rem;
+  padding: 5px;
+  width: 100px;
+}
+
+.center {
+  text-align: center;
+}
+
+div.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div.grid {
+  display: grid;
+}
+
+div.grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+div.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+div.grid-gap {
+  column-gap: 5px;
+}
+
+.margin-left {
+  margin-left: 15px;
+}
+
+.margin-right {
+  margin-right: 15px;
+}
+
+.margin-top {
+  margin-top: 15px;
+}
+
+.margin-bottom {
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: var(--charcoal);
+  color: white;
+  padding: 5px;
+  font-size: 1.25rem;
+}
+
+td {
+  text-align: left;
+  padding: 5px;
+}
+
+td[colspan="3"] {
+  background-color: var(--ruby);
+  color: white;
+  font-size: 1.15rem;
+  padding: 10px;
+}
+
+table tr:nth-child(odd) {
+  background-color: #aab1c0;
+}

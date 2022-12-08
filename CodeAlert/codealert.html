@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeAlert</title>
+    <link rel="stylesheet" href="./code.css" />
+    <script defer src="./code.js"></script>
+    <script defer src="./codelist.js"></script>
+  </head>
+  <body>
+    <h1 id="header" class="main-header">
+      <span class="backBtn" onclick="window.location = '../index.html'">Back</span>Code Alert
+    </h1>
+
+    <!--Code Menu-->
+    <div id="codeMenu" class="grid margin-left margin-right margin-top">
+      <button id="newCode" class="red">New Code</button>
+      <button id="previousCode" class="gray">Previous Codes</button>
+    </div>
+
+    <!--Previous Code-->
+    <div id="codeList" style="display: none">
+      <h1 id="listBackMenu" class="margin-left margin-right">Back to menu</h1>
+      <h1 id="backList" class="margin-left margin-right" style="display: none">Back</h1>
+      <div id="codeListDisplay"></div>
+      <ul id="codeDisplay" style="display: none"></ul>
+    </div>
+
+    <!--New Code-->
+    <div id="codeAlert" style="display: none">
+      <div class="grid grid-2 margin-left margin-right margin-top">
+        <!--Main Timer and buttons-->
+        <h1 id="backMenu" class="margin-left margin-right" style="grid-column: 1/-1">Back to menu</h1>
+        <button id="startCode" class="green">Start</button>
+        <button id="endCode" class="red" disabled>Stop</button>
+        <h1 id="codeTimerDisplay" class="codeTimer" style="grid-column: 1/-1">0:00:00</h1>
+        <h2 id="pulseTimerDisplay" class="codeTimer" style="grid-column: 1/-1">Rhythm check: 2:00</h2>
+        <button
+          style="grid-column: 1/-1; background-color: #c1ac33"
+          onclick="document.getElementById('noteModal').style.display='block'"
+        >
+          Add Note
+        </button>
+        <button style="grid-column: 1/-1; background-color: #4b4a62; color: white" onclick="addPulseCheck()">
+          Add Pulse Check
+        </button>
+      </div>
+      <h1 class="code-header">Medications</h1>
+      <div class="grid margin-left margin-right margin-bottom">
+        <button class="action medication" value="Amiodarone">Amiodarone</button>
+        <button class="action medication" value="Epinephrine">Epinephrine</button>
+        <button class="action medication" value="Lidocaine">Lidocaine</button>
+        <button class="action medication" value="Bicarb">Sodium Bicarbonate</button>
+        <button class="action medication" value="Calcium">Calcium</button>
+      </div>
+      <h1 class="code-header">Defibrillation</h1>
+      <div class="grid margin-left margin-right margin-top">
+        <button class="action shock" value="120J">120J</button>
+        <button class="action shock" value="150J">150J</button>
+        <button class="action shock" value="200J">200J</button>
+      </div>
+      <h1 class="code-header">Procedures</h1>
+      <div class="grid grid-2 margin-left margin-right">
+        <button class="action procedure red" value="access">IV / IO</button>
+        <button class="action procedure red" value="adjunct">OPA / NPA</button>
+        <button id="supraglotticBtn" class="action red" value="supraglottic" onclick="openSupraglottic()">
+          Supraglottic
+        </button>
+        <button id="intubationBtn" class="action red" onclick="openIntubate()">Intubation</button>
+      </div>
+      <h1 class="code-header">Synchronized Cardioversion</h1>
+      <div class="grid grid-2 margin-left margin-right margin-top">
+        <button class="action cardiovert" value="50J">50J</button>
+        <button class="action cardiovert" value="100J">100J</button>
+        <button class="action cardiovert" value="120J">120J</button>
+        <button class="action cardiovert" value="200J">200J</button>
+      </div>
+      <h1 class="code-header">Pacing</h1>
+      <div class="grid margin-left margin-right margin-top margin-bottom">
+        <button class="action" onclick="document.getElementById('pacingModal').style.display = 'block'">
+          Record mA
+        </button>
+      </div>
+    </div>
+
+    <!--ET Tube Modal-->
+    <div id="intubationModal" class="modal" style="z-index: 1">
+      <div class="modal-content">
+        <h1>ET Tube Placement</h1>
+        <hr />
+        <h3>E.T. Tube Size</h3>
+        <select id="ettubesize">
+          <option value=""></option>
+          <option value="2.0">2.0</option>
+          <option value="2.5">2.5</option>
+          <option value="3.0">3.0</option>
+          <option value="3.5">3.5</option>
+          <option value="4.0">4.0</option>
+          <option value="4.5">4.5</option>
+          <option value="5.0">5.0</option>
+          <option value="5.5">5.5</option>
+          <option value="6.0">6.0</option>
+          <option value="6.5">6.5</option>
+          <option value="7.0">7.0</option>
+          <option value="7.5">7.5</option>
+          <option value="8.0">8.0</option>
+          <option value="8.5">8.5</option>
+          <option value="9.0">9.0</option>
+        </select>
+        <h3>cm at teeth</h3>
+        <input id="ettubecm" placeholder="cm at teeth" />
+        <button class="blue margin-bottom" onclick="logIntubate()">Save and Close</button>
+        <button class="gray" onclick="document.getElementById('intubationModal').style.display = 'none'">Cancel</button>
+      </div>
+    </div>
+
+    <!--Note Modal-->
+    <div id="noteModal" class="modal" style="z-index: 1">
+      <div class="modal-content">
+        <h1>Note</h1>
+        <hr />
+        <textarea id="noteInput" cols="30" rows="5"></textarea>
+        <button class="blue margin-bottom" onclick="logNote()">Save and Close</button>
+        <button class="gray" onclick="document.getElementById('noteModal').style.display = 'none'">Cancel</button>
+      </div>
+    </div>
+
+    <!--Pacing Modal-->
+    <div id="pacingModal" class="modal" style="z-index: 1">
+      <div class="modal-content">
+        <h1>Pacing</h1>
+        <hr />
+        <h3>Amount of mA's</h3>
+        <input id="pacingmA" min="0" step="5" type="number" placeholder="mA" />
+        <h3>Confirm mechanical capture</h3>
+        <div style="width: 80%" class="grid grid-2 margin-bottom">
+          <button
+            id="yesCapture"
+            class="green btnWide"
+            onclick="this.disabled = true; document.getElementById('noCapture').disabled=false"
+          >
+            Yes
+          </button>
+          <button
+            id="noCapture"
+            class="red btnWide"
+            onclick="this.disabled = true; document.getElementById('yesCapture').disabled = false"
+          >
+            No
+          </button>
+        </div>
+        <button class="blue margin-bottom" onclick="logPacing()">Save and Close</button>
+        <button class="gray" onclick="document.getElementById('pacingModal').style.display = 'none'">Cancel</button>
+      </div>
+    </div>
+
+    <!--Supraglottic Modal-->
+    <div id="supraglotticModal" class="modal" style="z-index: 1">
+      <div class="modal-content">
+        <h1>I-Gel Placement</h1>
+        <hr />
+        <h3>I-Gel Size</h3>
+        <select id="supraglotticsize">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="1.5">1.5</option>
+          <option value="2">2</option>
+          <option value="2.5">2.5</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <button class="blue margin-bottom" onclick="logSupraglottic()">Save and Close</button>
+        <button class="gray" onclick="document.getElementById('supraglotticModal').style.display = 'none'">
+          Cancel
+        </button>
+      </div>
+    </div>
+
+    <!--Rhythm Check Modal-->
+    <div id="pulseCheckModal" class="modal">
+      <div class="modal-content">
+        <h1>Rhythm Check</h1>
+        <hr />
+        <h3>Pulse Check</h3>
+        <div class="grid grid-2 margin-bottom">
+          <button
+            id="pulse"
+            class="green"
+            onclick="this.disabled = true; document.getElementById('noPulse').disabled = false;"
+          >
+            Pulse
+          </button>
+          <button
+            id="noPulse"
+            class="red"
+            onclick="this.disabled = true; document.getElementById('pulse').disabled = false;"
+          >
+            No Pulse
+          </button>
+        </div>
+        <h3>Rhythm Select</h3>
+        <select id="rhythmCheck">
+          <option value="">Pick a rhythm</option>
+          <option>Ventricular Tachycardia w/o pulse</option>
+          <option>Ventricular Fibrillation</option>
+          <option>Torsades De Pointe</option>
+          <option>Asystole</option>
+          <option>Pulseless Electrical Activity (PEA)</option>
+          <option>Sinus Rhythm</option>
+          <option>Sinus Bradycardia</option>
+          <option>Sinus Tachycardia</option>
+          <option>AV Block</option>
+        </select>
+        <textarea id="rhythmComment" placeholder="Rhythm comments" cols="30" rows="5"></textarea>
+        <button class="blue" onclick="logPulse()">Save and Close</button>
+        <button class="gray" onclick="document.getElementById('pulseCheckModal').style.display = 'none'">Cancel</button>
+      </div>
+    </div>
+  </body>
+</html>

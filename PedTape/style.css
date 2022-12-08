@@ -1,0 +1,201 @@
+/* ? Tags */
+body {
+    margin: 0;
+    font-family: arial;
+}
+
+button {
+    border: none;
+    border-radius: 0.25rem;
+    height: 5rem;
+    margin: 1rem 1rem;
+    background-color: #6366F1;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+input {
+    margin: 2rem;
+}
+
+tr,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 0.35rem;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+th {
+    background-color: #1F2937;
+    color: white;
+    font-size: 1.5rem;
+    padding: .75rem 1rem;
+}
+
+button>a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+
+/* ? End of Tags */
+
+/* ? Classes */
+
+th.secondary {
+    background-color: #64748B;
+}
+
+/* ? End of Classes */
+
+/* ? IDs */
+
+#main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#displayImage {
+    height: 500px;
+    width: 500px;
+    background-color: blue;
+}
+
+#colorGrid {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: repeat(5, 2fr);
+    grid-template-rows: repeat(11, 1fr);
+}
+
+
+/* ? End of IDs */
+
+.inner-container {
+    margin: 0.5rem;
+}
+
+
+
+
+.inner-container>table th {
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+}
+
+.inner-container>table td:not(:first-child) {
+    text-align: center;
+}
+
+i {
+    float: left;
+}
+
+i:hover {
+    cursor: pointer;
+}
+
+p {
+    text-align: center;
+}
+
+img {
+    width: 100%;
+    height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    background-color: #1E293B;
+    margin: 0;
+    padding: 0.5rem;
+    color: white;
+    margin-bottom: 0.35rem;
+}
+
+#colorGrid button {
+    height: auto;
+    margin: 0.25rem;
+    grid-row: span 2;
+    border: none;
+    border-radius: 0.25rem;
+    display: flex;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
+.span-all {
+    grid-column: 1 / -1;
+}
+
+/*Color gradient is 500, 600*/
+.yellow,
+div#yellow>h1 {
+    background: linear-gradient(#F59E0B, #CA8A04);
+
+}
+
+.blue,
+div#blue>h1 {
+    background: linear-gradient(#3B82F6, #2563EB);
+}
+
+.green,
+div#green>h1 {
+    background: linear-gradient(#22C55E, #16A34A);
+}
+
+.pink,
+div#pink>h1 {
+    background: linear-gradient(#EC4899, #DB2777);
+}
+
+.red,
+div#red>h1 {
+    background: linear-gradient(#EF4444, #DC2626);
+}
+
+.purple,
+div#purple>h1 {
+    background: linear-gradient(#A855F7, #9333EA);
+}
+
+.white,
+div#white>h1 {
+    background: linear-gradient(#A1A1AA, #71717A);
+}
+
+.orange,
+div#white>h1 {
+    background: linear-gradient(#F97316, #EA580C);
+}
+
+.gray,
+div#white>h1 {
+    background: linear-gradient(#64748B, #475569);
+}
+
+/* Responsive Design */
+
+@media only screen and (max-width: 600px) {
+    #colorGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

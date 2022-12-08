@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="rsi.css" />
+    <script defer src="./rsi.js"></script>
+  </head>
+  <body>
+    <div class="margin-left margin-right margin-top">
+      <!--Male and Female-->
+      <div class="grid grid-2">
+        <div class="flex-center">
+          <p for="gender">Male:</p>
+          <input type="radio" name="gender" />
+        </div>
+        <div class="flex-center">
+          <p for="gender">Female: </p>
+          <input type="radio" name="gender" />
+        </div>
+      </div>
+
+      <!--Height-->
+      <div class="grid grid-2 margin-top margin-bottom">
+        <div class="flex-center">
+          <p>Height:</p>
+        </div>
+        <div class="grid grid-2 grid-gap">
+          <input type="number" id="feet" placeholder="ft" />
+          <input type="number" id="in" placeholder="in" />
+        </div>
+      </div>
+
+      <!--Weight-->
+      <div class="grid grid-2 margin-bottom">
+        <div class="flex-center">
+          <p>Weight:</p>
+        </div>
+        <div>
+          <input style="width: auto" type="number" id="lbs" placeholder="Weight in lbs" />
+        </div>
+      </div>
+      </div>
+    </div>
+    <!--Calculation Table-->
+    <div class="flex-center">
+        <table>
+          <tr>
+            <th>Medication</th>
+            <th>Dosage</th>
+            <th>mL's</th>
+          </tr>
+          <tr>
+            <td>Ketamine<br><b>1 mg/kg</b></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Ketamine<br><b>1.5 mg/kg</b></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Ketamine<br><b>2 mg/kg</b></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="center" colspan="3">Ketamine concentration is 200 mg/3mL</td>
+          </tr>
+          <tr>
+            <td>Succs<br><b>1.5 mg/kg</b></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+  </body>
+</html>

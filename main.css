@@ -1,0 +1,203 @@
+:root {
+  --gunmetal: #333745;
+  --gray: #b4b4bb;
+  --dark-gray: #7e7e8b;
+  --red: #9d1b28;
+  --green: #058a41;
+  --blue: #3f51b5;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+h1.main-header {
+  text-align: center;
+  background-color: var(--gunmetal);
+  color: white;
+  padding: 1rem;
+  margin: 0;
+  font-size: 2rem;
+}
+
+.font-size-large {
+  font-size: 5rem;
+}
+
+h1.main-header .backBtn {
+  float: left;
+}
+
+h1.main-header .backBtn:hover {
+  cursor: pointer;
+}
+
+div.align-center {
+  text-align: center;
+}
+
+div.full-body {
+  height: 100vh;
+}
+
+table {
+  width: 100%;
+}
+
+thead {
+  font-size: 1.5rem;
+  background-color: #303f9f;
+  color: white;
+}
+
+table,
+tr,
+td,
+th {
+  border: 1px solid black;
+  border-collapse: collapse;
+  font-size: 1.25rem;
+  padding: 0.5rem;
+}
+
+tr.gray {
+  background-color: var(--gray);
+}
+
+td.linkCell {
+  text-align: center;
+}
+
+td.headerCell {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 20px;
+}
+
+td.headerCell span.sub {
+  font-size: 1rem;
+}
+
+table .cellCenter {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.margin-left {
+  margin-left: 1rem;
+}
+
+.margin-right {
+  margin-right: 1rem;
+}
+
+.margin-top {
+  margin-top: 1rem;
+}
+
+.margin-bottom {
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+  column-gap: 10px;
+  row-gap: 10px;
+}
+
+.grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-span-all {
+  grid-column: 1 / -1;
+}
+
+button {
+  background-color: var(--gray);
+  border-radius: 10px;
+  color: black;
+  border: 0;
+  padding: 2rem;
+  font-size: 2rem;
+}
+
+button.small {
+  padding: 0.5rem 1.5rem;
+}
+
+button.small-font {
+  font-size: 1.25rem;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: var(--dark-gray);
+}
+
+button.blue {
+  background-color: var(--blue);
+  color: white;
+}
+
+button.red {
+  background-color: var(--red);
+  color: white;
+}
+
+button.green {
+  background-color: var(--green);
+}
+
+@media only screen and (min-width: 1000px) {
+  .grid-2 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  button.menu-btn {
+    padding: 2.5rem;
+    font-size: 1.75rem;
+  }
+
+  button.btn-tall {
+    font-size: 2rem !important;
+    padding: 1rem;
+  }
+
+  .grid {
+    row-gap: 15px;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .grid-force-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-force-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
