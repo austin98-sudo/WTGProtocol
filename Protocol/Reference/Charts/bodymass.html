@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WTG Protocols</title>
+    <link rel="stylesheet" href="../../../main.css" />
+  </head>
+  <style>
+    table td.col-header {
+      color: white;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    table#male td.col-header {
+      background-color: #0d47a1;
+    }
+
+    table#female td.col-header {
+      background-color: #d81b60;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    table#male tr:not(.header-row):nth-child(even) {
+      background-color: #90caf9;
+    }
+
+    table#female tr:not(.header-row):nth-child(even) {
+      background-color: #f48fb1;
+    }
+
+    table#female thead th {
+      background-color: #ad1457;
+    }
+
+    table#female td.sub-header {
+      background-color: #e91e63;
+    }
+
+    @media only screen and (max-width: 750px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <body>
+    <h1 class="main-header"><span class="backBtn" onclick="window.location ='../reference.html'">Back</span>Lean Body Mass</h1>
+    <div id="menu" class="margin-top margin-bottom margin-left margin-right grid grid-2">
+      <span style="grid-column: 1/-1"
+        ><i>Pediatric patients should be measured utilizing a pedatric medical measruing adjunct, i.e. a length based tape (Broselow Tape)</i></span
+      >
+      <!--Male Chart-->
+      <table id="male">
+        <thead>
+          <th colspan="3">Males</th>
+        </thead>
+        <tr class="header-row">
+          <td colspan="2" class="sub-header">Height</td>
+          <td class="sub-header">IBW</td>
+        </tr>
+        <tr class="header-row">
+          <td class="col-header">Feet</td>
+          <td class="col-header">Inches</td>
+          <td class="col-header">kg</td>
+        </tr>
+        <tr>
+          <td><b>4'10"</b></td>
+          <td>58</td>
+          <td><b>45</b></td>
+        </tr>
+        <tr>
+          <td><b>4'11"</b></td>
+          <td>59</td>
+          <td><b>48</b></td>
+        </tr>
+        <tr>
+          <td><b>5'0"</b></td>
+          <td>60</td>
+          <td><b>50</b></td>
+        </tr>
+        <tr>
+          <td><b>5'1"</b></td>
+          <td>61</td>
+          <td><b>52</b></td>
+        </tr>
+        <tr>
+          <td><b>5'2"</b></td>
+          <td>62</td>
+          <td><b>55</b></td>
+        </tr>
+        <tr>
+          <td><b>5'3"</b></td>
+          <td>63</td>
+          <td><b>57</b></td>
+        </tr>
+        <tr>
+          <td><b>5'4"</b></td>
+          <td>64</td>
+          <td><b>59</b></td>
+        </tr>
+        <tr>
+          <td><b>5'5"</b></td>
+          <td>65</td>
+          <td><b>62</b></td>
+        </tr>
+      </table>
+
+      <!--Male Chart-->
+      <table id="female">
+        <thead>
+          <th colspan="3">Females</th>
+        </thead>
+        <tr class="header-row">
+          <td colspan="2" class="sub-header">Height</td>
+          <td class="sub-header">IBW</td>
+        </tr>
+        <tr class="header-row">
+          <td class="col-header">Feet</td>
+          <td class="col-header">Inches</td>
+          <td class="col-header">kg</td>
+        </tr>
+        <tr>
+          <td><b>4'10"</b></td>
+          <td>58</td>
+          <td><b>45</b></td>
+        </tr>
+        <tr>
+          <td><b>4'11"</b></td>
+          <td>59</td>
+          <td><b>48</b></td>
+        </tr>
+        <tr>
+          <td><b>5'0"</b></td>
+          <td>60</td>
+          <td><b>50</b></td>
+        </tr>
+        <tr>
+          <td><b>5'1"</b></td>
+          <td>61</td>
+          <td><b>52</b></td>
+        </tr>
+        <tr>
+          <td><b>5'2"</b></td>
+          <td>62</td>
+          <td><b>55</b></td>
+        </tr>
+        <tr>
+          <td><b>5'3"</b></td>
+          <td>63</td>
+          <td><b>57</b></td>
+        </tr>
+        <tr>
+          <td><b>5'4"</b></td>
+          <td>64</td>
+          <td><b>59</b></td>
+        </tr>
+        <tr>
+          <td><b>5'5"</b></td>
+          <td>65</td>
+          <td><b>62</b></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+  <script></script>
+</html>

@@ -6,8 +6,8 @@ let codeData = {
     seconds: 0,
   },
   pulseTimer: {
-    minutes: 0,
-    seconds: 5,
+    minutes: 2,
+    seconds: 0,
   },
   events: [],
   status: {
@@ -16,9 +16,24 @@ let codeData = {
     supraglottic: false,
     adjunct: false,
   },
-  meds: {},
-  shocks: {},
-  cardiovert: {},
+  meds: {
+    Amiodarone: 0,
+    Epinephrine: 0,
+    Lidocaine: 0,
+    Bicarb: 0,
+    Calcium: 0,
+  },
+  shocks: {
+    "120J": 0,
+    "150J": 0,
+    "200J": 0,
+  },
+  cardiovert: {
+    "100J": 0,
+    "150J": 0,
+    "200J": 0,
+    "250J": 0,
+  },
 };
 
 //Menu buttons
@@ -193,7 +208,6 @@ document.querySelectorAll(".shock").forEach((el) => {
 document.querySelectorAll(".cardiovert").forEach((el) => {
   el.addEventListener("click", (btn) => {
     let joule = btn.target;
-    console.log("click");
     //if cardiovert is not in object yet then add it, otherwise add one
     codeData.cardiovert[joule.value] = isNaN(codeData.cardiovert[joule.value])
       ? 1

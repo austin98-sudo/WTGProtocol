@@ -1,4 +1,4 @@
-let delay = 30;
+let delay = 60;
 let display = document.getElementById("seconds");
 let timer = null;
 let timerStatus = false;

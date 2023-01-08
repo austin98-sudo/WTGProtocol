@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WTG Protocols</title>
+    <link rel="stylesheet" href="../../../main.css" />
+  </head>
+  <style>
+    table:not(#APGARList) tr td:first-child[rowspan] {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    table:not(#APGARList) tr td:last-child {
+      text-align: center;
+    }
+
+    table:not(#APGARList) td:not(.vertical-header-cell):hover {
+      cursor: pointer;
+    }
+
+    table#APGARList tbody tr:nth-child(even) {
+      background-color: #bdbdbd;
+    }
+
+    td.clicked {
+      background-color: #bdbdbd;
+    }
+
+    td.tall {
+      padding: 1.5rem 0.25rem;
+    }
+
+    td.align-left {
+      text-align: left;
+    }
+
+    .sticky {
+      position: sticky;
+      top: 0px;
+    }
+
+    #APGARList {
+      display: none;
+    }
+  </style>
+  <body>
+    <h1 class="main-header"><span class="backBtn" onclick="window.location ='../reference.html'">Back</span>APGAR</h1>
+    <div id="menu" class="margin-top margin-bottom margin-left margin-right">
+      <table id="APGARList" class="margin-bottom">
+        <thead>
+          <th>Previous APGAR</th>
+        </thead>
+        <tr>
+          <td><button onclick="clearList()">Reset</button></td>
+        </tr>
+        <tbody id="savedAPGARList"></tbody>
+      </table>
+      <table class="center-cells">
+        <thead>
+          <th colspan="3">Apperance</th>
+        </thead>
+        <tr>
+          <td class="sticky sub-header">0</td>
+          <td class="sticky sub-header">1</td>
+          <td class="sticky sub-header">2</td>
+        </tr>
+        <tr>
+          <td class="tall" id="a0" onclick="changeScore('appear', 'a0', 0)">Body and extremities are blue/pale</td>
+          <td class="tall" id="a1" onclick="changeScore('appear', 'a1', 1)">Body is pink, extremities are blue/pale</td>
+          <td class="tall" id="a2" onclick="changeScore('appear', 'a2', 2)">Completely pink</td>
+        </tr>
+
+        <thead>
+          <th colspan="3">Pulse Rate</th>
+        </thead>
+        <tr>
+          <td class="tall" id="p0" onclick="changeScore('pr', 'p0', 0)">Absent</td>
+          <td class="tall" id="p1" onclick="changeScore('pr', 'p1', 1)">Below 100 bpm</td>
+          <td class="tall" id="p2" onclick="changeScore('pr', 'p2', 2)">100 bpm or greater</td>
+        </tr>
+
+        <thead>
+          <th colspan="3">Grimace</th>
+        </thead>
+        <tr>
+          <td class="tall" id="g0" onclick="changeScore('grim', 'g0', 0)">No response</td>
+          <td class="tall" id="g1" onclick="changeScore('grim', 'g1', 1)">Grimace</td>
+          <td class="tall" id="g2" onclick="changeScore('grim', 'g2', 2)">Cough, sneeze, cry</td>
+        </tr>
+
+        <thead>
+          <th colspan="3">Activity<br />(muscle tone)</th>
+        </thead>
+        <tr>
+          <td class="tall" id="act0" onclick="changeScore('act', 'act0', 0)">Limp</td>
+          <td class="tall" id="act1" onclick="changeScore('act', 'act1', 1)">Semo flexion of extremities</td>
+          <td class="tall" id="act2" onclick="changeScore('act', 'act2', 2)">Active motion</td>
+        </tr>
+
+        <thead>
+          <th colspan="3">Respiratory Effort</th>
+        </thead>
+        <tr>
+          <td class="tall" id="resp0" onclick="changeScore('resp', 'resp0', 0)">Absent</td>
+          <td class="tall" id="resp1" onclick="changeScore('resp', 'resp1', 1)">Slow and irregular</td>
+          <td class="tall" id="resp2" onclick="changeScore('resp', 'resp2', 2)">Strong cry</td>
+        </tr>
+        <tr>
+          <td class="sub-header" colspan="2" rowspan="2"><b>Total:</b></td>
+          <td id="total">0</td>
+        </tr>
+        <tr>
+          <td><button onclick="saveGCS()">Save</button></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+  <script>
+    updateList();
+
+    let clicked = {
+      appear: 0,
+      pr: 0,
+      grim: 0,
+      act: 0,
+      resp: 0,
+    };
+
+    let tdObj = {
+      appear: ["a0", "a1", "a2"],
+      pr: ["p0", "p1", "p2"],
+      grim: ["g0", "g1", "g2"],
+      act: ["act0", "act1", "act2"],
+      resp: ["resp0", "resp1", "resp2"],
+    };
+
+    function clearStyling() {
+      clicked = {
+        appear: 0,
+        pr: 0,
+        grim: 0,
+        act: 0,
+        resp: 0,
+      };
+
+      for (prop in tdObj) {
+        clearAll(prop);
+      }
+    }
+
+    function saveGCS() {
+      let date = new Date();
+      let pastAPGAR = localStorage.getItem("APGAR") === null ? [] : localStorage.getItem("APGAR").split(",");
+      let currentAPGAR = document.getElementById("total").textContent;
+
+      pastAPGAR.push(
+        `${
+          date.getMonth() + 1
+        }/${date.getDate()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} - ${currentAPGAR}`
+      );
+      localStorage.setItem("APGAR", pastAPGAR.join(","));
+
+      updateList();
+      clearStyling();
+    }
+
+    function updateList() {
+      //clear list
+      document.getElementById("savedAPGARList").innerHTML = "";
+
+      //update list
+      let APGARList = localStorage.getItem("APGAR") === null ? [] : localStorage.getItem("APGAR").split(",");
+
+      if (APGARList != null) {
+        APGARList.forEach((item) => {
+          let tr = document.createElement("tr");
+          let td = document.createElement("td");
+
+          td.textContent = item;
+          td.classList.add("align-left");
+          tr.append(td);
+
+          document.getElementById("savedAPGARList").append(tr);
+          document.getElementById("APGARList").style.display = "table";
+        });
+      }
+    }
+
+    function clearList() {
+      document.getElementById("savedAPGARList").innerHTML = "";
+      document.getElementById("APGARList").style.display = "none";
+
+      localStorage.removeItem("APGAR");
+    }
+
+    function clearAll(type) {
+      tdObj[type].forEach((el) => {
+        document.getElementById(el).classList.remove("clicked");
+      });
+    }
+
+    function calculateTotal() {
+      let score = clicked.appear + clicked.pr + clicked.grim + clicked.act + clicked.resp;
+      document.getElementById("total").textContent = score;
+    }
+
+    function changeScore(type, id, value) {
+      clearAll(type);
+
+      document.getElementById(id).classList.add("clicked");
+      clicked[type] = value;
+
+      calculateTotal();
+    }
+  </script>
+</html>

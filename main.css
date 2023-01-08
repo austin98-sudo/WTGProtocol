@@ -4,6 +4,7 @@
   --dark-gray: #7e7e8b;
   --red: #9d1b28;
   --green: #058a41;
+  --pink: #f48fb1;
   --blue: #3f51b5;
 }
 
@@ -17,6 +18,23 @@ body {
   flex-direction: column;
   margin: 0;
   padding: 0;
+}
+
+div.main-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+}
+
+div.main-header h1 {
+  text-align: center;
+  font-size: 2rem;
+  width: 100%;
+}
+
+div.main-header img {
+  width: 25%;
 }
 
 h1.main-header {
@@ -83,8 +101,19 @@ td.headerCell {
   line-height: 20px;
 }
 
+td.sub-header {
+  background-color: #4157e5;
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
 td.headerCell span.sub {
   font-size: 1rem;
+}
+
+table.center-cells td {
+  text-align: center;
 }
 
 table .cellCenter {
@@ -115,6 +144,27 @@ table .cellCenter {
   margin-bottom: 1rem;
 }
 
+.center {
+  text-align: center;
+}
+
+.full-width,
+.width-100 {
+  width: 100%;
+}
+
+.width-75 {
+  width: 75%;
+}
+
+.width-50 {
+  width: 50%;
+}
+
+.width-25 {
+  width: 25%;
+}
+
 .grid {
   display: grid;
   column-gap: 10px;
@@ -133,6 +183,12 @@ table .cellCenter {
   grid-column: 1 / -1;
 }
 
+table button {
+  padding: 0.5rem;
+  width: 100%;
+  font-size: unset;
+}
+
 button {
   background-color: var(--gray);
   border-radius: 10px;
@@ -143,7 +199,7 @@ button {
 }
 
 button.small {
-  padding: 0.5rem 1.5rem;
+  padding: 1rem 1.5rem;
 }
 
 button.small-font {
@@ -169,15 +225,142 @@ button.green {
   background-color: var(--green);
 }
 
+button.pink {
+  background-color: var(--pink);
+}
+
 @media only screen and (min-width: 1000px) {
   .grid-2 {
     grid-template-columns: 1fr 1fr 1fr;
   }
+
+  div.main-header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin: 1rem;
+  }
+
+  div.main-header h1 {
+    width: 100%;
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  div.main-header img {
+    width: 8%;
+    margin-right: 2rem;
+  }
 }
 
-@media only screen and (max-width: 600px) {
+h1.list-header {
+  padding-left: 1rem;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.center {
+  text-align: center;
+}
+
+.red {
+  background-color: #d32f2f;
+}
+
+.padding-top {
+  padding-top: 1rem;
+}
+
+.padding-bottom {
+  padding-bottom: 1rem;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+ul.alternate li:nth-child(odd) {
+  background-color: var(--gray);
+}
+
+li {
+  padding: 1rem;
+  font-size: 1.25rem;
+}
+
+ul.menu li:hover {
+  cursor: pointer;
+}
+
+div.card {
+  padding: 1rem;
+  background-color: var(--gray);
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 5fr 1fr 2fr;
+  column-gap: 10px;
+  row-gap: 10px;
+  margin-bottom: 1rem;
+}
+
+div.card p {
+  margin-bottom: 0.25rem;
+  font-size: 1.25rem;
+  font-weight: 200;
+}
+
+div.card p:not(:first-of-type) {
+  margin-top: 0;
+}
+
+div.card p:last-of-type {
+  margin-bottom: unset;
+}
+
+table button {
+  padding: 0.75rem;
+  font-size: 1.25rem;
+  width: 100%;
+  background-color: #37474f;
+  color: white;
+}
+
+div.card button {
+  padding: 0.75rem;
+  font-size: 1.25rem;
+  width: 100%;
+  background-color: #37474f;
+  color: white;
+}
+
+div.card button:hover {
+  background-color: #455a64;
+}
+
+div.card h1 {
+  padding: 0;
+  margin: 0;
+}
+
+div.flex {
+  display: flex;
+}
+
+div.flex-column {
+  flex-direction: column;
+}
+
+div.flex-grow * {
+  flex-grow: 1;
+}
+
+@media only screen and (max-width: 750px) {
   button.menu-btn {
-    padding: 2.5rem;
+    padding: 1.5rem;
     font-size: 1.75rem;
   }
 
@@ -199,5 +382,26 @@ button.green {
 
   .grid-force-3 {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  div.card {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  div.card div.span-mobile {
+    grid-column: 1 / -1;
+  }
+
+  /*
+    S: Small - 25%
+    F: Full - 75%
+  */
+
+  table.s-25 td:first-child {
+    width: 25%;
+  }
+
+  table.s-75 td:first-child {
+    width: 60%;
   }
 }
